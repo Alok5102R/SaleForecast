@@ -2,3 +2,4 @@ python3
 flask
 pymongo
 celery
+python-dotenv
