@@ -1,6 +1,6 @@
 # Automated Sales Forecast Generation Project
 
-This project is a mini automated sales forecast generation system developed using Python, Flask, MongoDB, and Celery. It allows users to upload an Excel file containing sales data into MongoDB, trigger the forecast generation job through an API, and download the output Excel file.
+This project is an automated sales forecast generation system developed using Python, Flask, MongoDB, and Celery. It allows users to upload an Excel file containing sales data into MongoDB, trigger the forecast generation job through an API, and download the output Excel file.
 
 ## Functionality
 
