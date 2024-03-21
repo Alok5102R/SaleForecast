@@ -22,7 +22,6 @@ collectionIdentity = db['IdentityData']                                         
 collectionFile = db['testfile']                                                          # MongoDB collection
 
 
-
 # ========================================================
 
 # Fetches budgetid & saleid Then increment them by 1
@@ -31,17 +30,20 @@ def getid(x):
     idData=0
     fetchDoc = collectionIdentity.find_one({"id": 1})
     if x=="b":
-        idtype = "budgetid"
+        idType = "budgetid"
     elif x=="s":
-        idtype = "saleid"
-    idData = fetchDoc[idtype]
-    collectionIdentity.update_one({"id": 1},{"$inc":{idtype:1}})
+        idType = "saleid"
+    idData = fetchDoc[idType]
+    collectionIdentity.update_one({"id": 1},{"$inc":{idType:1}})
     return idData
 
 
 
 @app.route("/")
 def home():
+    i=5
+    for i in range(5, -1, -1):
+        print(i)
     return Response("<h1>Automated Sales Forecast Generator</h1>", status=200)
 
 
@@ -81,7 +83,7 @@ def fetchData():
 
 
 @app.route('/uploadf', methods=['GET','POST'])
-def read_excel_rows():
+def readFileData():
     if 'file' not in request.files:
         return render_template('index.html')
     excel_file = request.files['file']
@@ -108,6 +110,40 @@ def read_excel_rows():
     collectionSale.insert_many(listSaleData)
     collectionIdentity.update_one({"id": 1},{"$set":{"budgetid":budgetid, "saleid":saleid}})
     return Response("Data uploaded successfully")
+
+
+
+@app.route('/downloadf', methods=['GET','POST'])
+def writeFileData():
+    dataid = collectionIdentity.find_one({"id": 1})
+    budgetid = dataid["budgetid"]
+    saleid = dataid["saleid"]
+    articleList = []
+    weekNoList = []
+    quantityList = []
+    for i in range(1, saleid):
+        saledata = collectionSale.find_one({"id": i})
+        for j in range(2, budgetid):
+            budgetDataPrevious = collectionBudget.find_one({"id": j-1})
+            budgetDataCurrent = collectionBudget.find_one({"id": j})
+            quantity = saledata["avgsales"] * 7 * (budgetDataCurrent["budget"]/budgetDataPrevious["budget"])
+            articleList.append(saledata["article"])
+            weekNoList.append(budgetDataCurrent["week"])
+            quantityList.append(round(quantity,2))
+    forecastData = {
+        "Article" : articleList,
+        "WeekNo" : weekNoList,
+        "Quantity" : quantityList
+        }
+    df = pd.DataFrame(forecastData)
+    reportFile = "SalesForecast.xlsx"
+    df.to_excel(reportFile, index=False)
+    return Response("File generated")
+
+
+
+
+
 
 
 
