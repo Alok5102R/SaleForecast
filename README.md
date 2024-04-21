@@ -34,13 +34,13 @@ This project is an automated sales forecast generation system developed using Py
 ## Application Preview
 
 <img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast1.jpg" alt="SaleForecast1">
-<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast1.jpg" alt="SaleForecast2">
-<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast1.jpg" alt="SaleForecast3">
-<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast1.jpg" alt="SaleForecast4">
-<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast1.jpg" alt="SaleForecast5">
-<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast1.jpg" alt="SaleForecast6">
-<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast1.jpg" alt="SaleForecast7">
-<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast1.jpg" alt="SaleForecast8">
+<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast2.jpg" alt="SaleForecast2">
+<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast3.jpg" alt="SaleForecast3">
+<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast4.jpg" alt="SaleForecast4">
+<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast5.jpg" alt="SaleForecast5">
+<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast6.jpg" alt="SaleForecast6">
+<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast7.jpg" alt="SaleForecast7">
+<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast8.jpg" alt="SaleForecast8">
 
 ## Contributors
 
