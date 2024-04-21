@@ -19,11 +19,22 @@ This project is an automated sales forecast generation system developed using Py
 - **MongoDB:** A NoSQL database used to store the uploaded sales data.
   
 - **Celery:** A distributed task queue used to perform the asynchronous forecast generation job.
+  
+- **Docker:** A platform that enables developers to package, deploy, and run applications using containers.
 
 - **Install Dependencies:** Make sure you have Python installed on your system. Install Flask, pymongo, and Celery using pip:
    ```
    pip install Flask pymongo celery
    ```
+
+## Prerequisites:
+
+- Set your mongodb connection string in "flask_app/.env" and "simple_worker/.env"
+
+- In the main directory "SaleForecast", run :
+  ```
+  docker compose up
+  ```
 
 ## Contributors
 
