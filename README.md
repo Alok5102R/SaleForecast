@@ -22,11 +22,6 @@ This project is an automated sales forecast generation system developed using Py
   
 - **Docker:** A platform that enables developers to package, deploy, and run applications using containers.
 
-- **Install Dependencies:** Make sure you have Python installed on your system. Install Flask, pymongo, and Celery using pip:
-   ```
-   pip install Flask pymongo celery
-   ```
-
 ## Prerequisites:
 
 - Set your mongodb connection string in "flask_app/.env" and "simple_worker/.env"
