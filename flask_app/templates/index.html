@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Forecast</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#435c8a]">
+
+    <nav class="bg-white border border-gray-200 dark:border-gray-600 px-2 sm:px-4 py-2.5  dark:bg-gray-700 shadow">
+        <div class="container flex flex-wrap justify-between items-center mx-auto">
+          <a href="#" class="flex items-center">
+            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+              SalesForecast
+            </span>
+          </a>
+      
+          <div class="flex items-center">
+            <button
+              id="menu-toggle"
+              type="button"
+              class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
+            >
+              <span class="sr-only">Open main menu</span>
+              <!-- Hamburger icon -->
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </button>
+          </div>
+      
+          <div
+            class="w-full md:block md:w-auto hidden"
+            id="mobile-menu"
+          >
+            <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                  aria-current="page"
+                >
+                  Home
+                </a>
+              </li>
+              <!-- <li>
+                <a
+                  href="#"
+                  class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  {{username}}
+                </a>
+              </li> -->
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+      
+        </div>
+      </nav>
+
+    <div class="h-screen flex flex-col items-center justify-center p-3">
+        <div class="w-full max-w-md p-9 bg-gray-200 rounded-lg shadow-lg">
+            <h1 class="text-center text-2xl sm:text-2xl font-semibold mb-4 text-gray-800">File Drop and Upload</h1>
+            <form action="" method="POST" enctype="multipart/form-data">
+              <div class="bg-sky-300 p-8 text-center rounded-lg border-dashed border-2 border-gray-300 hover:border-blue-500 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-md" id="dropzone">
+                  <label for="fileInput" class="cursor-pointer flex flex-col items-center space-y-2">
+                      <svg class="w-16 h-16 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                      </svg>
+                      <span class="text-gray-600">Drag and drop your files here</span>
+                      <span class="text-gray-500 text-sm">(or click to select)</span>
+                  </label>
+                  <input type="file" id="fileInput" name="file" class="hidden">
+              </div>
+              <div class="mt-6 text-center" id="fileList"></div>
+              <div class="uploadcaption flex flex-col items-center">
+                  <p style="color: #0d446b">(Image extension should be: xlsx, xls)</p>
+                  <input type="hidden" name="page_name" value="upload">
+                  <button type="submit" style="margin-top: 5px; background-color: #435c8a; border: none; border-radius: 2px; color: white; padding: 5px;">Upload Sales Data</button>
+              </div>
+              </form>
+
+        </div>
+      <a href="/downloadf"><button type="submit" class="mt-4 mb-4 bg-gray-200 border rounded text-black p-2">Generate Sales Forecast</button></a>
+      </div>
+
+
+
+
+      <script>
+          const dropzone = document.getElementById('dropzone');
+    const fileInput = document.getElementById('fileInput');
+    const fileList = document.getElementById('fileList');
+    
+    dropzone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropzone.classList.add('border-blue-500', 'border-2');
+    });
+    
+    dropzone.addEventListener('dragleave', () => {
+        dropzone.classList.remove('border-blue-500', 'border-2');
+    });
+    
+    dropzone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropzone.classList.remove('border-blue-500', 'border-2');
+    
+        const files = e.dataTransfer.files;
+        handleFiles(files);
+    });
+    
+    fileInput.addEventListener('change', (e) => {
+        const files = e.target.files;
+        handleFiles(files);
+    });
+    
+    function handleFiles(files) {
+        fileList.innerHTML = '';
+    
+        for (const file of files) {
+            const listItem = document.createElement('div');
+            listItem.textContent = `${file.name} (${formatBytes(file.size)})`;
+            fileList.appendChild(listItem);
+        }
+    }
+    
+    function formatBytes(bytes) {
+        if (bytes === 0) return '0 Bytes';
+    
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+    
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+    
+        </script>
+    
+    <script src="" async defer></script>
+
+</body>
+</html>
