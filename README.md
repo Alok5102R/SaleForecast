@@ -22,7 +22,7 @@ This project is an automated sales forecast generation system developed using Py
   
 - **Docker:** A platform that enables developers to package, deploy, and run applications using containers.
 
-## Prerequisites:
+## Prerequisites
 
 - Set your mongodb connection string in "flask_app/.env" and "simple_worker/.env"
 
@@ -30,6 +30,17 @@ This project is an automated sales forecast generation system developed using Py
   ```
   docker compose up
   ```
+
+## Application Preview
+
+<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast1.jpg" alt="SaleForecast1">
+<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast1.jpg" alt="SaleForecast2">
+<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast1.jpg" alt="SaleForecast3">
+<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast1.jpg" alt="SaleForecast4">
+<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast1.jpg" alt="SaleForecast5">
+<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast1.jpg" alt="SaleForecast6">
+<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast1.jpg" alt="SaleForecast7">
+<img align="center" src="https://github.com/Alok5102R/SaleForecast/blob/master/screenShot/SaleForecast1.jpg" alt="SaleForecast8">
 
 ## Contributors
 
